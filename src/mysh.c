@@ -191,7 +191,7 @@ void init_shell() {
 
   	/* See if we are running interactively.  */
 	shell_terminal = STDIN_FILENO;
-	/* isatty test whether a file descriptor referes to a terminal */
+	/* isatty test whether a file descriptor refers to a terminal */
 	shell_is_interactive = isatty(shell_terminal);
 
 	if(shell_is_interactive) {
@@ -206,7 +206,15 @@ void init_shell() {
                  * this background process group.
                  */
 
+		signal(SIGINT, SIG_IGN);
+		signal(SIGQUIT, SIG_IGN);
+		signal(SIGTSTP, SIG_IGN);
+		signal(SIGTTIN, SIG_IGN);
+
 		signal(SIGTTOU, SIG_IGN);
+
+        signal (SIGCHLD, SIG_IGN);
+
 
 		/* Put ourselves in our own process group.  */
 		shell_pgid = getpid();

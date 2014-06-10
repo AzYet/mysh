@@ -20,3 +20,7 @@ shell初始化
 当一个前台任务被执行时，shell必须进入阻塞状态直到所有的任务进程停止或终止，这可以通过调用waitpid函数来实现，使用WUNTRACED选项可开启任务停止和终止时的状态报告。
 使用WNOHANG选项可以获得后台任务的终止和停止状态信息，提示输入新的命令时是执行此检查的一个适当时机。
 
+继续中止的的任务
+shell可以通过发送SIGCONT信号给process group来继续中止的任务，如果任务是前台的，shell首先通过tcsetpgrp给予终端控制权，并恢复保存的终端状态。
+shell通过put_job_in_foreground和put_job_in_background来将新建和中止的任务放入前台或者后台。
+

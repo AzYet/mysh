@@ -1,0 +1,24 @@
+MYSH(1)
+
+NAME 
+        mysh - a simple shell program perform basic job controls
+
+SYNOPSIS
+        mysh
+
+DESCRIPTION
+        mysh is a simple linux shell that executes commands read from the standard input or from a file. mysh also has other useful features like background mechanism.
+
+SHELL GRAMMAR
+        A command is a sequence of optional variable assignments followed by blank-separated words and redirections, and terminated by a control operator. The first word specifies the command to be executed, and is passed as argument zero. The remaining words are passed as arguments to the invoked command.
+
+RESERVED WORDS
+        >   output redirection, redirect the standard output to a local file.   
+        <   input redirection, redirect the standard input from terminal to a  local file.
+        &   background, appending this charactor to the end of a command line makes a job run in the background.
+        ;   seperator, use it between jobs to commit multiple commands in a single line
+
+Shell Variables
+        MYSH_PROMPT     setting this variable to custom your own prompt charactor to be appended to "mysh-".
+
+
