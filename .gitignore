@@ -3,3 +3,4 @@ Debug/
 *~
 *.swp
 .gitignore
+*.log
